@@ -15,7 +15,7 @@ title: "Exercise 1: Georeferencing"
 
 The data is a CSV file named "mockaroo_latlon.csv" located in the data directory.  
 
-1. Use the `read_csv()` function to import the data and assign to an object named "xy_location"
+1. Use the `read_csv()` function to import the data and assign to an object named "xy_locations"
 
 ```{r}
 

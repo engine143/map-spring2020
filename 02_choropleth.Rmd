@@ -2,7 +2,9 @@
 title: "tidycensus"
 author: "John Little"
 date: "Jan 24, 2019"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 The [tidycensus](https://walkerke.github.io/tidycensus/index.html) package, developed by [Kyle Walker](https://walkerke.github.io/), is very **convenient and easy to use package for making choropleth maps** from United States Department of **Census data**, specifically from the Decennial and ACS Census reports.  This package makes it possible to gather census variables and conveniently join those variables with "Census Geography" (i.e. aka "shapefiles", or polygons.)  Visualization, or plotting, maps can be done with separate packages.  
@@ -22,7 +24,7 @@ library(mapview)
 Use the tidycensus package to gather Census data and join that data with Census geography (i.e. geometry, i.e. shapefiles, i.e. polygons).  First, you will need to get a [free Census API key](https://api.census.gov/data/key_signup.html).  Kyle Walker's [*Basic usage of tidycensus*](https://walkerke.github.io/tidycensus/articles/basic-usage.html) documents this process. 
 
 ```{r}
-census_api_key("YOUR API KEY GOES HERE")
+census_api_key("Your Key Goes Here")
 ```
 
 ### .Renviron File
