@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
     <title>Practical Mapping in R: Lat/Lon plotting &amp; Choropleths</title>
-    <meta charset="utf-8">
-    <meta name="author" content="John Little" />
-    <meta name="date" content="2018-10-23" />
+    <meta charset="utf-8" />
+    <meta name="author" content="Mark Thomas" />
+    <meta name="date" content="2019-10-15" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/duke-blue.css" rel="stylesheet" />
@@ -18,8 +18,8 @@ class: center, middle, inverse, title-slide
 
 # Practical Mapping in R:<br>Lat/Lon plotting &amp; Choropleths
 ## leaflet, tidycensus, and sf
-### John Little
-### 2018-10-23
+### Mark Thomas
+### 2019-10-15
 
 ---
 
@@ -39,7 +39,7 @@ exclude: false
 class: top, center
 background-image:  url(http://library.duke.edu/data/sites/default/files/datagis/images/data_gis_logo.png)
 
-## Data &amp; Visualization Services
+## Center for Data &amp; Visualization Sciences
 ### [library.duke.edu/data](http://library.duke.edu/data)
 
 
@@ -58,7 +58,7 @@ background-image:  url(http://library.duke.edu/data/sites/default/files/datagis/
 &amp;nbsp;  
 
 
-[rfun.library.duke.edu](https://rfun.library.duke.edu/) &lt;br&gt;for slide annotations, keystroke: *p* 
+[rfun.library.duke.edu](https://rfun.library.duke.edu/) &lt;br&gt;for slide annotations in presenter mode, keystroke: *p* 
 
 ???
 
@@ -67,10 +67,22 @@ This is a presenter comment for the presenter mode
 use 'p' to toggle the presenter mode or '?' or 'h' to toggle the help / key-shortcut options
 
 ---
+
+## Files for Workshop
+
+- https://github.com/engine143/map-fall2019
+
+- Download and unzip on local machine
+
+- Open Project in R Studio (drop-down in upper right)
+
+&lt;figure&gt;&lt;img src="images/Open_Project.png"&gt;&lt;/figure&gt;
+
+---
+
 ## Prerequisites
 
 - 023 Lab Workstations  (All packages and versions already installed)
-
 - [Intro to R](https://intro2r.library.duke.edu/):  Tidyverse, R Notebooks, R Markdown, RStudio
 - [ggplot2](https://ggplot.library.duke.edu/)
 
@@ -81,7 +93,12 @@ use 'p' to toggle the presenter mode or '?' or 'h' to toggle the help / key-shor
 - [Visualization in R using ggplot2](https://rfun.library.duke.edu/portfolio/ggplot_workshop/)
 - [DVS learning materials: handouts, guides, data, and videos](http://library.duke.edu/data/news/past-workshops)
 
+##Further Assistance
 
+- [Library guide to mapping in R](https://guides.library.duke.edu/r-geospatial)
+- [Library guide to GIS data](https://guides.library.duke.edu/gisdata)
+- [**Mapping in R**](https://map-rfun.library.duke.edu/): website with enhanced version of this workshop
+- [Code for website examples &amp; exercises](https://github.com/libjohn/mapping-with-R)
 ---
 ## Why Make Maps with R
 
@@ -90,15 +107,16 @@ use 'p' to toggle the presenter mode or '?' or 'h' to toggle the help / key-shor
     -	QGIS
     - Tableau
     -	Python
-  		
+- Reproducibility    
+
 ---
 ## Library Packages used in this Workshop
 
 - **`leaflet`** -- creates interactive maps
 - **`tidycensus`** -- thematic mapping, Census geography (shapefiles), Census data
 - **`sf`** - [Simple Features Access](https://en.wikipedia.org/wiki/Simple_Features) for R (Open Geospatial &amp; ISO)
-- `ggplot2` -- especially `geom_sf()` and `facet_wrap()`
-- `ggmap` -- can quickly generate simple static maps + more
+- **`ggplot2`** -- especially `geom_sf()` and `facet_wrap()`
+- **`ggmap`** -- can quickly generate simple static maps + more
 - Thematic Mapping
     - `tmap`
     - `ggplot2`
@@ -114,13 +132,13 @@ See Also [System Info](http://rfun.library.duke.edu/map/software_prereqs.html#pa
 
 Packages of interest but not part of this workshop include...
 
-- `rgdal` 
+- [`rgdal`](https://cran.r-project.org/web/packages/rgdal/rgdal.pdf) 
 
-- `raster`
+- [`raster`](https://cran.r-project.org/web/packages/raster/raster.pdf)
 
-- `maptools`
+- [`maptools`](https://cran.r-project.org/web/packages/maptools/maptools.pdf)
 
-- `argeos`
+- [`rgeos`](https://cran.rstudio.com/web/packages/rgeos/rgeos.pdf)
 
 ---
 class: duke-green, middle, center
@@ -153,6 +171,8 @@ class: center, middle, duke-softblue
 
 Plotting X/Y Coordinates (latitude/longitude)
 
+*mapview*
+
 *leaflet*
 
 ---
@@ -167,11 +187,22 @@ background-image:  url(images/xy.png)
 ???
 Image Credit: [GAO](https://www.flickr.com/photos/usgao/8269791489/)
 ---
+class: middle
+
+### In your project files:
+
+- Together: Work through 01_georeference.Rmd
+
+- On your own: work through exercise-1_xy.Rmd
+
+  - Answers: answers-1_xy.Rmd
+
+---
 class: center, middle, duke-softblue
 
 ## Choropleth 
 
-Shading areas with a variable 
+Shading areas based on ranges of values of a variable 
 
 *tidycensus* 
 
@@ -181,9 +212,9 @@ background-image: url(images/choropleth_wages.png)
 ---
 ## Census
 
-- ACS &amp; Decennial Census
+- ACS &amp; Decennial Census (demographic and socioeconomic data)
 
-- Census Geography
+- Census Geography (areas used to aggregate data)
 
 ---
 background-image:  url(images/decennial_v_acs.jpg)
@@ -213,15 +244,30 @@ background-image: url(images/polygons.png)
 - Example of [Census Bureau TIGER Metadata](https://www2.census.gov/geo/tiger/TIGER_DP/2015ACS/Metadata/STATE_METADATA_2015.txt) file
 
 ---
+class: middle
+
+### In your project files:
+
+- Together: Work through 02_choropleth.Rmd
+
+- On your own: work through exercise-2_tidycensus.Rmd
+
+  - Answers: answers-2_tidycensus.Rmd
+  
+---
 class: center, middle, duke-softblue
 
 ## Thematic Mapping
 
-*tmap*
-
 *sf*
 
 *ggplot2*
+
+*tmap*
+
+[See: *Mapping in R* website](https://map-rfun.library.duke.edu/030_thematic_sf.html)
+
+[Code for website examples/exercises](https://github.com/libjohn/mapping-with-R)
 
 ---
 ##  Simple Features
@@ -250,11 +296,22 @@ class: center, middle, duke-softblue
 
 1. Join measure to polygon (`tmap::append_data`)
 
-1. Visualize (Fill polygons with variable)
+1. Visualize (Fill polygons with values for variable)
 
     - `qtm`
     - `tmap::tm_shape`
     - `ggplot2::geom_sf`
+
+
+---
+
+class: middle
+
+- [See: *Mapping in R* website](https://map-rfun.library.duke.edu/030_thematic_sf.html)
+
+- [Code for website examples/exercises](https://github.com/libjohn/mapping-with-R)
+
+- On your own: work through (in map-fall2019 project) exercise-3_thematic-map_with_federal_data.Rmd
 
 ---
 class: middle, duke-green
@@ -270,30 +327,34 @@ class: middle, duke-green
     - Integrate an HTML widget into an R Notebook
 
 ---
-## Thank You For Attending
+## Thank You for Attending
 
 .pull-left[
-### I am ...
+### We are ...
+
+- **Mark Thomas**
+- [library.duke.edu/data/../staff/](https://library.duke.edu/data/about/staff/)
+- https://github.com/engine183
+- [mark.thomas@duke.edu](mailto:mark.thomas@duke.edu)
+
+#### With ...
+
+- **Drew Keener**
+- [library.duke.edu/data/../staff/](https://library.duke.edu/data/about/staff/)
+- [drew.keener@duke.edu](mailto:drew.keener@duke.edu)
+
+#### Course Designed by:
 
 - **John Little**
 - https://johnlittle.info
 - https://github.com/libjohn
-
-#### Schedule Me
-
-- [http:&amp;#47;&amp;#47;v.gd&amp;#47;littleconsult](http://duke.libcal.com/appointment/2695)
-
-### With ...
-
-- **Drew Keener**
-- [library.duke.edu/data/../staff/](https://library.duke.edu/data/about/staff/)
 ]
 
 .pull-right[
-### We are...
-- Data &amp; Visualization Services
+### About us ...
+- Center for Data and Visualization Sciences
 - https://library.duke.edu/data
-- The /Edge, Bostock (1st Floor)
+- The/Edge, Bostock (1st Floor)
 
 #### Walk-in Hours
 - [Schedule](http://library.duke.edu/data/about/schedule)
@@ -303,7 +364,7 @@ class: middle, duke-green
 - [Past Workshops](http://library.duke.edu/data/news/past-workshops)
 
 #### Contact Us
-- askData@Duke.edu
+- [askData@duke.edu](mailto:askdata@duke.edu)
 ]
 
 ---
@@ -348,6 +409,7 @@ C bn
 
 [CC BY-NC license](https://creativecommons.org/licenses/by-nc/4.0/)
     </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
@@ -357,16 +419,74 @@ C bn
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
-(function() {
-  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
   if (!r) return;
   s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
   d.head.appendChild(s);
-})();</script>
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 (function() {
-  var i, text, code, codes = document.getElementsByTagName('code');
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
   for (i = 0; i < codes.length;) {
     code = codes[i];
     if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
@@ -380,14 +500,15 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     i++;
   }
-})();
+};
+slideshow._releaseMath(document);
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
 (function () {
   var script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
   if (location.protocol !== 'file:' && /^https?:/.test(script.src))
     script.src  = script.src.replace(/^https?:/, '');
   document.getElementsByTagName('head')[0].appendChild(script);
