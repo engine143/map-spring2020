@@ -12,7 +12,7 @@ library(mapview)
 
 ## Load Data
 
-```{r}
+```{r readdata}
 xy_locations <- read_csv("data/mockaroo_latlon.csv")
 ```
 
@@ -40,7 +40,7 @@ mapview(xy_sf)
 1. Create a high contrast (black and white) map.  
 1. Save the file as a .jpeg file.
 
-```{r}
+```{r contrastymap}
 mymap <- mapview(xy_sf, 
                  map.types = "Stamen.Toner", 
                  legend = FALSE,
