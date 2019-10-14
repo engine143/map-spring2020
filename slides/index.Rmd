@@ -135,6 +135,12 @@ Packages of interest but not part of this workshop include...
 
 - [`rgeos`](https://cran.rstudio.com/web/packages/rgeos/rgeos.pdf)
 
+- [`tmaptools`](https://cran.r-project.org/web/packages/tmaptools/tmaptools.pdf)
+
+- [`tigris`](https://cran.r-project.org/web/packages/tigris/tigris.pdf)
+
+- [`cartogram`](https://cran.r-project.org/web/packages/cartogram/cartogram.pdf)
+
 ---
 class: duke-green, middle, center
 
