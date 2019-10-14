@@ -335,10 +335,10 @@ class: middle, duke-green
 
 - **Mark Thomas**
 - [library.duke.edu/data/../staff/](https://library.duke.edu/data/about/staff/)
-- https://github.com/engine183
+- https://github.com/engine143
 - [mark.thomas@duke.edu](mailto:mark.thomas@duke.edu)
 
-#### With ...
+#### and ...
 
 - **Drew Keener**
 - [library.duke.edu/data/../staff/](https://library.duke.edu/data/about/staff/)
