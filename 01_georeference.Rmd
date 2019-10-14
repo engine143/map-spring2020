@@ -65,9 +65,10 @@ mapview(sbux_sf)
 
 You can save a map as an interactive HTML page or a static `.png, .pdf, or .jpeg` file with the [`mapshot` function](https://r-spatial.github.io/mapview/reference/mapshot.html).  For example:
 
+```{r savemap}
 - `mapshot(starNCmap, file = "map.png")`
 - `mapshot(starNCmap, url = "map.html")`
-
+```
 ---
 
 ### Creative Commons

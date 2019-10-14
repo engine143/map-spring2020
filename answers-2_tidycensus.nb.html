@@ -1837,61 +1837,15 @@ $(document).ready(function () {
 <p>AGGREGATE TRAVEL TIME TO WORK (IN MINUTES)</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxudHJhdmVsX3RpbWUgPC0gXG4gIGdldF9hY3MoZ2VvZ3JhcGh5ID0gXFxjb3VudHlcXCxcbiAgICAgICAgICB2YXJpYWJsZXMgPSBcXEIwODEzMV8wMDFcXCxcbiAgICAgICAgICBzdGF0ZSA9IFxcTkNcXCxcbiAgICAgICAgICBnZW9tZXRyeSA9IFRSVUUpXG5gYGBcbmBgYCJ9 -->
-<p><code>r</code>r travel_time &lt;- get_acs(geography = , variables = 08131_001, state = , geometry = TRUE)</p>
-<pre><code></code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHJhdmVsX3RpbWUgPC0gXG4gIGdldF9hY3MoZ2VvZ3JhcGh5ID0gXCJjb3VudHlcIixcbiAgICAgICAgICB2YXJpYWJsZXMgPSBcIkIwODEzMV8wMDFcIixcbiAgICAgICAgICBzdGF0ZSA9IFwiTkNcIixcbiAgICAgICAgICBnZW9tZXRyeSA9IFRSVUUpXG5cbnRyYXZlbF90aW1lXG5gYGAifQ== -->
+<pre class="r"><code>travel_time &lt;- 
+  get_acs(geography = &quot;county&quot;,
+          variables = &quot;B08131_001&quot;,
+          state = &quot;NC&quot;,
+          geometry = TRUE)
+
+travel_time</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiR2V0dGluZyBkYXRhIGZyb20gdGhlIDIwMTMtMjAxNyA1LXllYXIgQUNTXG5Eb3dubG9hZGluZyBmZWF0dXJlIGdlb21ldHJ5IGZyb20gdGhlIENlbnN1cyB3ZWJzaXRlLiAgVG8gY2FjaGUgc2hhcGVmaWxlcyBmb3IgdXNlIGluIGZ1dHVyZSBzZXNzaW9ucywgc2V0IGBvcHRpb25zKHRpZ3Jpc191c2VfY2FjaGUgPSBUUlVFKWAuXG5Vc2luZyBGSVBTIGNvZGUgJzM3JyBmb3Igc3RhdGUgJ05DJ1xuIn0= -->
-<pre><code>Getting data from the 2013-2017 5-year ACS
-Downloading feature geometry from the Census website.  To cache shapefiles for use in future sessions, set `options(tigris_use_cache = TRUE)`.
-Using FIPS code &#39;37&#39; for state &#39;NC&#39;</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxudHJhdmVsX3RpbWVcbmBgYFxuYGBgIn0= -->
-<p><code>r</code>r travel_time</p>
-<pre><code></code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiU2ltcGxlIGZlYXR1cmUgY29sbGVjdGlvbiB3aXRoIDEwMCBmZWF0dXJlcyBhbmQgNSBmaWVsZHNcbmdlb21ldHJ5IHR5cGU6ICBNVUxUSVBPTFlHT05cbmRpbWVuc2lvbjogICAgICBYWVxuYmJveDogICAgICAgICAgIHhtaW46IC04NC4zMjE4NyB5bWluOiAzMy44NDIzMiB4bWF4OiAtNzUuNDYwNjIgeW1heDogMzYuNTg4MTJcbmVwc2cgKFNSSUQpOiAgICA0MjY5XG5wcm9qNHN0cmluZzogICAgK3Byb2o9bG9uZ2xhdCArZGF0dW09TkFEODMgK25vX2RlZnNcbkZpcnN0IDEwIGZlYXR1cmVzOlxuICAgR0VPSUQgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5BTUVcbjEgIDM3MDAxICBBbGFtYW5jZSBDb3VudHksIE5vcnRoIENhcm9saW5hXG4yICAzNzAwMyBBbGV4YW5kZXIgQ291bnR5LCBOb3J0aCBDYXJvbGluYVxuMyAgMzcwMDUgQWxsZWdoYW55IENvdW50eSwgTm9ydGggQ2Fyb2xpbmFcbjQgIDM3MDA3ICAgICBBbnNvbiBDb3VudHksIE5vcnRoIENhcm9saW5hXG41ICAzNzAwOSAgICAgIEFzaGUgQ291bnR5LCBOb3J0aCBDYXJvbGluYVxuNiAgMzcwMTEgICAgIEF2ZXJ5IENvdW50eSwgTm9ydGggQ2Fyb2xpbmFcbjcgIDM3MDEzICBCZWF1Zm9ydCBDb3VudHksIE5vcnRoIENhcm9saW5hXG44ICAzNzAxNSAgICBCZXJ0aWUgQ291bnR5LCBOb3J0aCBDYXJvbGluYVxuOSAgMzcwMTcgICAgQmxhZGVuIENvdW50eSwgTm9ydGggQ2Fyb2xpbmFcbjEwIDM3MDE5IEJydW5zd2ljayBDb3VudHksIE5vcnRoIENhcm9saW5hXG4gICAgIHZhcmlhYmxlIGVzdGltYXRlICAgbW9lXG4xICBCMDgxMzFfMDAxICAxNjYyNDQwIDM3ODM5XG4yICBCMDgxMzFfMDAxICAgMzk4MjkwIDMwMzcwXG4zICBCMDgxMzFfMDAxICAgMTAyODUwIDEyMzg1XG40ICBCMDgxMzFfMDAxICAgMjcyNDU1IDMyNjM4XG41ICBCMDgxMzFfMDAxICAgMzAwNDYwIDIzMTUzXG42ICBCMDgxMzFfMDAxICAgMTQ0NDc1IDE2MzMyXG43ICBCMDgxMzFfMDAxICAgNDUzNzYwIDMzMzc4XG44ICBCMDgxMzFfMDAxICAgMTcyMDc1IDE4NzAyXG45ICBCMDgxMzFfMDAxICAgMzEyMDc1IDMzNDA4XG4xMCBCMDgxMzFfMDAxICAxMDgyNzM1IDQyMjQyXG4gICAgICAgICAgICAgICAgICAgICAgICAgZ2VvbWV0cnlcbjEgIE1VTFRJUE9MWUdPTiAoKCgtNzkuNTQxOTIgMy4uLlxuMiAgTVVMVElQT0xZR09OICgoKC04MS4zNDM1OSAzLi4uXG4zICBNVUxUSVBPTFlHT04gKCgoLTgxLjM1MzI2IDMuLi5cbjQgIE1VTFRJUE9MWUdPTiAoKCgtODAuMzEwMiAzNC4uLlxuNSAgTVVMVElQT0xZR09OICgoKC04MS43NDA2NSAzLi4uXG42ICBNVUxUSVBPTFlHT04gKCgoLTgyLjA4MDk0IDMuLi5cbjcgIE1VTFRJUE9MWUdPTiAoKCgtNzcuMTk1NzcgMy4uLlxuOCAgTVVMVElQT0xZR09OICgoKC03Ny4zMjc2MiAzLi4uXG45ICBNVUxUSVBPTFlHT04gKCgoLTc4LjkwMiAzNC4uLi5cbjEwIE1VTFRJUE9MWUdPTiAoKCgtNzguNjUwMzggMy4uLlxuIn0= -->
-<pre><code>Simple feature collection with 100 features and 5 fields
-geometry type:  MULTIPOLYGON
-dimension:      XY
-bbox:           xmin: -84.32187 ymin: 33.84232 xmax: -75.46062 ymax: 36.58812
-epsg (SRID):    4269
-proj4string:    +proj=longlat +datum=NAD83 +no_defs
-First 10 features:
-   GEOID                             NAME
-1  37001  Alamance County, North Carolina
-2  37003 Alexander County, North Carolina
-3  37005 Alleghany County, North Carolina
-4  37007     Anson County, North Carolina
-5  37009      Ashe County, North Carolina
-6  37011     Avery County, North Carolina
-7  37013  Beaufort County, North Carolina
-8  37015    Bertie County, North Carolina
-9  37017    Bladen County, North Carolina
-10 37019 Brunswick County, North Carolina
-     variable estimate   moe
-1  B08131_001  1662440 37839
-2  B08131_001   398290 30370
-3  B08131_001   102850 12385
-4  B08131_001   272455 32638
-5  B08131_001   300460 23153
-6  B08131_001   144475 16332
-7  B08131_001   453760 33378
-8  B08131_001   172075 18702
-9  B08131_001   312075 33408
-10 B08131_001  1082735 42242
-                         geometry
-1  MULTIPOLYGON (((-79.54192 3...
-2  MULTIPOLYGON (((-81.34359 3...
-3  MULTIPOLYGON (((-81.35326 3...
-4  MULTIPOLYGON (((-80.3102 34...
-5  MULTIPOLYGON (((-81.74065 3...
-6  MULTIPOLYGON (((-82.08094 3...
-7  MULTIPOLYGON (((-77.19577 3...
-8  MULTIPOLYGON (((-77.32762 3...
-9  MULTIPOLYGON (((-78.902 34....
-10 MULTIPOLYGON (((-78.65038 3...</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>AGGREGATE TRAVEL TIME TO WORK (IN MINUTES)</p>
