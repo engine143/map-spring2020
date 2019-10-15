@@ -21,7 +21,8 @@ library(mapview)
 
 ## Census API Key
 
-Use the tidycensus package to gather Census data and join that data with Census geography (i.e. geometry, i.e. shapefiles, i.e. polygons).  First, you will need to get a [free Census API key](https://api.census.gov/data/key_signup.html).  Kyle Walker's [*Basic usage of tidycensus*](https://walkerke.github.io/tidycensus/articles/basic-usage.html) documents this process. 
+Use the tidycensus package to gather Census data and join that data with Census geography (i.e. geometry, i.e. shapefiles, i.e. polygons).  First, you will need to get a [free Census API key](https://api.census.gov/data/key_signup.html).  Kyle Walker's [*Basic usage of tidycensus*](https://walkerke.github.io/tidycensus/articles/basic-usage.html) documents this process.
+Add the argument `install = TRUE` to install it in your RStudio environment, and it will be saved for future use.
 
 ```{r}
 census_api_key("Your Key Goes Here")

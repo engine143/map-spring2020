@@ -74,6 +74,13 @@ use 'p' to toggle the presenter mode or '?' or 'h' to toggle the help / key-shor
 <figure><img src="images/Open_Project.png"></figure>
 
 ---
+class: middle, center
+
+Please take survey regarding your background with R and GIS
+
+https://pollev.com/markthomas583
+
+---
 
 ## Prerequisites
 
@@ -246,6 +253,10 @@ background-image: url(images/polygons.png)
 
 ---
 class: middle
+
+### Have your Census API Key handy
+
+- https://api.census.gov/data/key_signup.html
 
 ### In your project files:
 
