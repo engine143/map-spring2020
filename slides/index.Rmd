@@ -2,7 +2,7 @@
 title: "Practical Mapping in R:<br>Lat/Lon plotting & Choropleths"
 subtitle: "leaflet, tidycensus, and sf"
 author: "Mark Thomas"
-date: "2019-10-15"
+date: "2020-02-12"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -65,7 +65,7 @@ use 'p' to toggle the presenter mode or '?' or 'h' to toggle the help / key-shor
 
 ## Files for Workshop
 
-- https://github.com/engine143/map-fall2019
+- https://github.com/engine143/map-spring2020
 
 - Download and unzip on local machine
 
@@ -78,7 +78,7 @@ class: middle, center
 
 Please take survey regarding your background with R and GIS
 
-https://pollev.com/markthomas583
+http://bit.ly/R_mapping_background
 
 ---
 
